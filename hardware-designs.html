@@ -12,6 +12,83 @@
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
 	</noscript>
+	<style>
+		/* Carousel Styles */
+		.carousel-container {
+			position: relative;
+			max-width: 100%;
+			margin: auto;
+			overflow: hidden;
+		}
+
+		.slide {
+			display: none;
+			width: 100%;
+			height: auto;
+		}
+
+		.carousel-container img {
+			width: 100%;
+			border-radius: 8px;
+		}
+
+		/* Next & previous buttons */
+		.prev,
+		.next {
+			cursor: pointer;
+			position: absolute;
+			top: 50%;
+			width: auto;
+			margin-top: -22px;
+			padding: 16px;
+			color: rgb(54, 29, 29);
+			font-weight: bold;
+			font-size: 18px;
+			transition: 0.6s ease;
+			border-radius: 0 3px 3px 0;
+			user-select: none;
+		}
+
+		/* Position the "next button" to the right */
+		.next {
+			right: 0;
+			border-radius: 3px 0 0 3px;
+		}
+
+		/* Caption text */
+		.text {
+			color: #f2f2f2;
+			font-size: 15px;
+			padding: 8px 12px;
+			position: absolute;
+			bottom: 8px;
+			width: 100%;
+			text-align: center;
+		}
+
+		/* Dots */
+		.dot-container {
+			text-align: center;
+			padding: 5px;
+			background: #a93d5a;
+			/* Light maroon color */
+		}
+
+		.dot {
+			cursor: pointer;
+			height: 15px;
+			width: 15px;
+			margin: 0 2px;
+			background-color: #708ea8;
+			border-radius: 50%;
+			display: inline-block;
+			transition: background-color 0.6s ease;
+		}
+
+		.active-dot {
+			background-color: #555872;
+		}
+	</style>
 </head>
 
 <body class="is-preload">
@@ -39,11 +116,9 @@
 			<div class="container">
 				<header class="major">
 					<h2>Engineering and Design</h2>
-					<!--	<p>A brief overview of my hardware design experience.</p>-->
 				</header>
 
 				<!-- Content -->
-
 				<section id="intro">
 					<h2>A Unified Approach</h2>
 					<p>I believe that engineering and design are intrinsically connected, shaping the way I approach
@@ -54,8 +129,7 @@
 						<li><strong>Robotic Systems Design</strong> – Crafting autonomous systems that blend mechanical
 							precision with cutting-edge technology.</li>
 						<li><strong>System Architecture and Integration</strong> – Design and manage complex systems
-							integrating varied subsystems to create cohesive solutions.
-						</li>
+							integrating varied subsystems to create cohesive solutions.</li>
 						<li><strong>Mechanical Hardware Development</strong> – Creating robust hardware solutions that
 							combine durability with optimized functionality.</li>
 						<li><strong>Rapid Prototyping</strong> – Translating concepts into physical models quickly to
@@ -71,8 +145,64 @@
 						requirements, ensuring that each project is both practical and innovative.</p>
 				</section>
 
+				<section id="featured-work">
+					<h2>Featured Designs</h2>
+					<p>Here are some of the projects that exemplify my approach to engineering and design, demonstrating
+						my ability to bring ideas to life through innovative solutions.</p>
 
+					<!-- Carousel Start -->
+					<div class="carousel-container">
+						<!-- Slide 1 with link -->
+						<div class="slide active-slide">
+							<a href="project1.html">
+								<img src="project1.jpg" alt="Project 1 Description">
+							</a>
+						</div>
 
+						<!-- Slide 2 with link -->
+						<div class="slide">
+							<a href="project2.html">
+								<img src="project2.jpg" alt="Project 2 Description">
+							</a>
+						</div>
+
+						<!-- Slide 3 with link -->
+						<div class="slide">
+							<a href="project3.html">
+								<img src="project3.jpg" alt="Project 3 Description">
+							</a>
+						</div>
+
+						<!-- Slide 4 with link -->
+						<div class="slide">
+							<a href="project4.html">
+								<img src="project4.jpg" alt="Project 4 Description">
+							</a>
+						</div>
+
+						<!-- Slide 5 with link -->
+						<div class="slide">
+							<a href="project5.html">
+								<img src="project5.jpg" alt="Project 5 Description">
+							</a>
+						</div>
+
+						<!-- Next and Previous buttons -->
+						<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+						<a class="next" onclick="plusSlides(1)">&#10095;</a>
+					</div>
+
+					<!-- Dots for navigation -->
+					<div class="dot-container">
+						<span class="dot" onclick="currentSlide(1)"></span>
+						<span class="dot" onclick="currentSlide(2)"></span>
+						<span class="dot" onclick="currentSlide(3)"></span>
+						<span class="dot" onclick="currentSlide(4)"></span>
+						<span class="dot" onclick="currentSlide(5)"></span>
+					</div>
+					<!-- Carousel End -->
+
+				</section>
 
 			</div>
 		</div>
@@ -89,7 +219,6 @@
 			</ul>
 			<li>Keith Fritz</li>
 			<li>Contact me: keith.fritz@me.com</li>
-			</ul>
 		</footer>
 
 		<!-- Scripts -->
@@ -102,6 +231,38 @@
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
 
+		<!-- Carousel Script -->
+		<script>
+			let slideIndex = 1;
+			showSlides(slideIndex);
+
+			function plusSlides(n) {
+				showSlides(slideIndex += n);
+			}
+
+			function currentSlide(n) {
+				showSlides(slideIndex = n);
+			}
+
+			function showSlides(n) {
+				let slides = document.getElementsByClassName("slide");
+				let dots = document.getElementsByClassName("dot");
+
+				if (n > slides.length) { slideIndex = 1 }
+				if (n < 1) { slideIndex = slides.length }
+
+				for (let i = 0; i < slides.length; i++) {
+					slides[i].style.display = "none";
+				}
+
+				for (let i = 0; i < dots.length; i++) {
+					dots[i].className = dots[i].className.replace(" active-dot", "");
+				}
+
+				slides[slideIndex - 1].style.display = "block";
+				dots[slideIndex - 1].className += " active-dot";
+			}
+		</script>
 </body>
 
 </html>
