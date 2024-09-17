@@ -42,8 +42,19 @@
 					<p>Curiosity, Craftsmanship, and Lifelong Learning</p>
 				</header>
 
+				<div class="scrollable-container">
+					<!-- Placeholder that will be shown while the image is loading -->
+					<div id="loading-message" style="text-align: center; font-size: 1.5em; color: #a93d5a;">
+						Loading<span id="dots">.</span>
+					</div>
+
+					<!-- Your image -->
+					<img id="main-image" src="images/AboutMe.png" alt="About Me Graphic"
+						style="width: 80vw; height: auto; display: none;">
+				</div>
+
 				<!-- Content -->
-				<section id="content">
+				<!-- <section id="content">
 					<h3>Travel and Learning</h3>
 					<p>I’m driven by a deep curiosity about the world, always eager to experience new cultures,
 						traditions, and ways of thinking. I believe that travel is one of the best ways to expand
@@ -67,7 +78,7 @@
 					<a href="#" class="image fit"><img src="images/WoodCollage.JPG" alt="" /></a>
 
 
-				</section>
+				</section> -->
 
 			</div>
 		</div>
@@ -96,6 +107,34 @@
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
+
+		<script>
+			// Get the image and loading message elements
+			const image = document.getElementById("main-image");
+			const loadingMessage = document.getElementById("loading-message");
+
+			// Set an event listener for when the image is fully loaded
+			image.onload = function () {
+				// Hide the loading message
+				loadingMessage.style.display = 'none';
+				// Show the image
+				image.style.display = 'block';
+			};
+		</script>
+
+		<script>
+			let dotCount = 1;
+			const dotsElement = document.getElementById("dots");
+
+			// Function to animate dots
+			function animateDots() {
+				dotCount = (dotCount % 3) + 1;  // Cycle through 1 to 3
+				dotsElement.innerHTML = ".".repeat(dotCount);  // Update the number of dots
+			}
+
+			// Run the animateDots function every second
+			setInterval(animateDots, 1000);
+		</script>
 
 </body>
 
