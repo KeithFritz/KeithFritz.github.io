@@ -1,0 +1,5 @@
+images/AboutMe_Making.svg filter=lfs diff=lfs merge=lfs -text
+images/FeaturedProjects_ARIS.svg filter=lfs diff=lfs merge=lfs -text
+images/FeaturedProjects_PondHoppers.svg filter=lfs diff=lfs merge=lfs -text
+images/FeaturedProjects_FabShop.svg filter=lfs diff=lfs merge=lfs -text
+images/FeaturedProjects_TXRobot.svg filter=lfs diff=lfs merge=lfs -text
