@@ -107,33 +107,6 @@
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
 
-		<script>
-			// Get the image and loading message elements
-			const image = document.getElementById("main-image");
-			const loadingMessage = document.getElementById("loading-message");
-
-			// Set an event listener for when the image is fully loaded
-			image.onload = function () {
-				// Hide the loading message
-				loadingMessage.style.display = 'none';
-				// Show the image
-				image.style.display = 'block';
-			};
-		</script>
-
-		<script>
-			let dotCount = 1;
-			const dotsElement = document.getElementById("dots");
-
-			// Function to animate dots
-			function animateDots() {
-				dotCount = (dotCount % 3) + 1;  // Cycle through 1 to 3
-				dotsElement.innerHTML = ".".repeat(dotCount);  // Update the number of dots
-			}
-
-			// Run the animateDots function every second
-			setInterval(animateDots, 1000);
-		</script>
 
 </body>
 
