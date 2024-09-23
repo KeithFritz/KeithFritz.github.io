@@ -8,6 +8,27 @@
 	<title>Keith Fritz - Engineering and Design</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<style>
+		.container {
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+		}
+
+		.video-container,
+		.text-container {
+			flex: 1;
+			max-width: 50%;
+			box-sizing: border-box;
+			padding: 10px;
+		}
+
+		.video-container video {
+			width: 60%;
+			height: auto;
+			object-fit: cover;
+		}
+	</style>
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
@@ -73,9 +94,21 @@
 					<p>Here are some of the projects that exemplify my approach to engineering and design, demonstrating
 						my ability to bring ideas to life through innovative solutions.</p>
 
+					<div class="container">
+						<div class="video-container">
+							<video controls autoplay muted loop>
+								<source src="videos/HeavyTurntable.mov" type="video/mp4">
+								Your browser does not support the video tag.
+							</video>
+						</div>
 
-
-
+						<div class="text-container">
+							<h3>**FILLER TEXT**</h3>
+							<p>This video showcases a heavy-duty turntable designed for industrial 3D scanning
+								applications. The
+								turntable is engineered to handle substantial loads of over 5000 pounds while
+								maintaining a precision level of control for accurate scanning.</p>
+						</div>
 
 				</section>
 
